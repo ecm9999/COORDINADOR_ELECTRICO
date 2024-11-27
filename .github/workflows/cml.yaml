@@ -7,7 +7,7 @@ on:
 
 jobs:
   train:
-    runs-on: self-hosted
+    runs-on: ubuntu_latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
