@@ -118,3 +118,16 @@ recall = recall_score(labels, predictions_labels)
 print(f'Accuracy: {accuracy:.2f}')
 print(f'Precision: {precision:.2f}')
 print(f'Recall: {recall:.2f}')
+
+# Generar gráfico de serie de tiempo con anomalía
+for i in range(len(labels)):
+    if labels[i] == 1:  # Si se detecta una anomalía
+        plt.figure(figsize=(10, 6))
+        plt.plot(range(len(X_test[i].flatten())), X_test[i].flatten(), label='Serie de tiempo')
+        plt.title('Serie de Tiempo con Anomalía Detectada')
+        plt.xlabel('Tiempo')
+        plt.ylabel('Valor Normalizado')
+        plt.legend()
+        plt.savefig(f'anomalia_{i}.png')  # Guardar el gráfico con un nombre único
+        plt.close()
+        break  # Solo guardar el primer caso con anomalía
