@@ -3,35 +3,35 @@ name: Train LSTM Model
 on:
   push:
     branches:
-      - main
+      - main  # Ejecutar el workflow en cada push a la rama main
 
 jobs:
   train:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest  # Usar un runner hospedado en GitHub con Ubuntu
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Descargar el repositorio actual
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v2  # Configurar Python
         with:
-          #python-version: '3.x'  
-          python-version: '3.11'  
+          python-version: '3.11'  # Asegúrate de que coincida con tu entorno local
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          pip install -r requirements.txt
 
       - name: Train LSTM Model
         run: |
-          python train.py
+          python train.py  # Ejecutar el archivo de entrenamiento
 
-      - name: Upload Predictions Plot
+      - name: Upload All PNGs
         uses: actions/upload-artifact@v3
         with:
-          name: predictions
-          path: predicciones.png
+          name: model_outputs
+          path: "*.png"
 
       - name: Finalize
         run: |

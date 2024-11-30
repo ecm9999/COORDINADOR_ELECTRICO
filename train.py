@@ -57,7 +57,8 @@ plt.title('Pérdida Durante el Entrenamiento')
 plt.xlabel('Épocas')
 plt.ylabel('Pérdida')
 plt.legend()
-plt.show()
+plt.savefig('perdida_entrenamiento.png')  # Guardar el gráfico como PNG
+plt.close()
 
 # Evaluar el modelo
 loss = model.evaluate(X_test, y_test)
@@ -86,7 +87,8 @@ plt.title('Histograma del Error Cuadrático Medio (MSE)')
 plt.xlabel('Mean Squared Error')
 plt.ylabel('Frecuencia')
 plt.legend()
-plt.show()
+plt.savefig('histograma_mse.png')  # Guardar el gráfico como PNG
+plt.close()
 
 # Generar etiquetas (0 = normal, 1 = anómalo) para fines de ejemplo
 threshold = 0.011  # Umbral para clasificar anomalías
@@ -103,7 +105,8 @@ plt.title('Curva ROC')
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.legend()
-plt.show()
+plt.savefig('curva_roc.png')  # Guardar el gráfico como PNG
+plt.close()
 
 # Cálculo de métricas de clasificación
 predictions_labels = (errors > threshold).astype(int)  # Predicción basada en el umbral

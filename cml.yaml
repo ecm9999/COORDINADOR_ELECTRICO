@@ -25,6 +25,5 @@ jobs:
       - name: Upload Results
         uses: actions/upload-artifact@v2
         with:
-          name: predicciones
-          path: predicciones.png
-
+          name: graficos
+          path: "*.png"
