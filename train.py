@@ -35,7 +35,7 @@ y = np.array(y)
 X = X.reshape((X.shape[0], X.shape[1], 1))  # n_muestras, window_size, n_features
 
 # Dividir los datos en conjuntos de entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=41)
 
 # Definir el modelo LSTM
 model = Sequential()
